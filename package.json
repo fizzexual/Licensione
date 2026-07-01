@@ -1,0 +1,28 @@
+{
+  "name": "licensione",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Licensione — a hardened, product-agnostic licensing platform on Cloudflare Workers + D1.",
+  "type": "module",
+  "workspaces": ["packages/*", "apps/*"],
+  "scripts": {
+    "dev": "npm run dev --workspace @licensione/api",
+    "deploy": "npm run deploy --workspace @licensione/api",
+    "test": "npm run test --workspace @licensione/api",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "keygen": "node packages/keygen/keygen.mjs",
+    "db:generate": "npm run db:generate --workspace @licensione/api",
+    "db:migrate:local": "npm run db:migrate:local --workspace @licensione/api",
+    "db:migrate": "npm run db:migrate --workspace @licensione/api"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

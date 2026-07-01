@@ -1,0 +1,9 @@
+# Local development secrets for `wrangler dev`. Copy to `.dev.vars` and fill in with the
+# output of `npm run keygen`. NEVER commit `.dev.vars`.
+
+SIGN_KID="dev"
+SIGN_PRIVATE_KEY="paste pkcs8 base64url private key from keygen"
+SIGN_PUBLIC_KEY="paste spki base64url public key from keygen"
+HMAC_SECRET="paste 32-byte base64url secret from keygen"
+WEBHOOK_SECRET="paste 32-byte base64url secret from keygen"
+ADMIN_TOKEN="paste 32-byte base64url token from keygen"

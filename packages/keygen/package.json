@@ -1,0 +1,10 @@
+{
+  "name": "@licensione/keygen",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Generates the Licensione server keypair and secrets.",
+  "type": "module",
+  "bin": {
+    "licensione-keygen": "./keygen.mjs"
+  }
+}

@@ -1,0 +1,39 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# build output
+dist/
+build/
+*.tsbuildinfo
+
+# cloudflare / wrangler
+.wrangler/
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+wrangler.local.jsonc
+
+# secrets & local env
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+keys/
+
+# test / coverage
+coverage/
+.vitest/
+
+# editor / os
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# logs
+*.log
+npm-debug.log*

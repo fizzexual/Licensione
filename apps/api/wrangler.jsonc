@@ -1,0 +1,44 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "licensione",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-11-11",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+
+  // The license database. Create it with `npx wrangler d1 create licensione-db`
+  // and paste the returned id below.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "licensione-db",
+      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID",
+      "migrations_dir": "drizzle"
+    }
+  ],
+
+  // Replay-protection cache for validation nonces.
+  // Create it with `npx wrangler kv namespace create NONCES`.
+  "kv_namespaces": [
+    {
+      "binding": "NONCES",
+      "id": "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+    }
+  ],
+
+  // Non-secret configuration. Secrets (SIGN_PRIVATE_KEY, HMAC_SECRET, WEBHOOK_SECRET,
+  // ADMIN_TOKEN) are set with `npx wrangler secret put <NAME>` — never here.
+  "vars": {
+    "SIGN_KID": "dev",
+    "REPLAY_WINDOW_SECONDS": "300",
+    "DEFAULT_TTL_SECONDS": "21600",
+    "DEFAULT_GRACE_SECONDS": "259200",
+    "TELEMETRY_RETENTION_DAYS": "30"
+  },
+
+  // Daily trim of old telemetry.
+  "triggers": { "crons": ["0 3 * * *"] }
+
+  // To serve the admin API + dashboard on a custom domain, add a routes/custom-domain
+  // block here and put a Cloudflare Access policy in front of /v1/admin and /admin.
+}
