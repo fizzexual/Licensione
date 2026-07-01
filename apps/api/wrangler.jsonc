@@ -6,13 +6,18 @@
   "compatibility_flags": ["nodejs_compat"],
   "observability": { "enabled": true },
 
+  // Serve the API on the custom domain (wrangler provisions the DNS record + cert on deploy).
+  // Keep the workers.dev subdomain enabled too, as a token-protected endpoint for CLI/automation.
+  "workers_dev": true,
+  "routes": [{ "pattern": "api.stiliyanstoyanov.com", "custom_domain": true }],
+
   // The license database. Create it with `npx wrangler d1 create licensione-db`
   // and paste the returned id below.
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "licensione-db",
-      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID",
+      "database_id": "1b9830f5-5a87-4deb-b6f0-65431d0e4c7d",
       "migrations_dir": "drizzle"
     }
   ],
@@ -22,14 +27,14 @@
   "kv_namespaces": [
     {
       "binding": "NONCES",
-      "id": "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+      "id": "8d15881b9d854bccb4108ee21c416ffd"
     }
   ],
 
   // Non-secret configuration. Secrets (SIGN_PRIVATE_KEY, HMAC_SECRET, WEBHOOK_SECRET,
   // ADMIN_TOKEN) are set with `npx wrangler secret put <NAME>` — never here.
   "vars": {
-    "SIGN_KID": "dev",
+    "SIGN_KID": "k1",
     "REPLAY_WINDOW_SECONDS": "300",
     "DEFAULT_TTL_SECONDS": "21600",
     "DEFAULT_GRACE_SECONDS": "259200",
