@@ -1,6 +1,6 @@
 <div align="center">
 
-# Licensione
+# Licensione 🌱
 
 **One hardened licensing platform for every kind of product** — Minecraft plugins, websites,
 desktop apps, and physical goods — on Cloudflare Workers + D1.
@@ -15,6 +15,14 @@ Licensione issues and verifies license keys for anything you sell. The core neve
 product type: a **product** declares its `type` and a `binding_type`, and every activation is just a
 *fingerprint* of the right kind — a server id, a domain, a machine id, or a unit serial. One endpoint,
 one database, every product.
+
+## About
+
+Licensione is for independent developers and small sellers who want to run their own license-key
+server instead of paying for a hosted licensing service. It runs as a single Cloudflare Worker with
+D1 and KV, includes an admin dashboard, and documents a wire protocol for Minecraft plugins,
+websites, desktop apps and physical products. It is early (v0.1.0): the API, dashboard and tests are
+in place, while language SDKs are still to come.
 
 ## Why it's secure
 
