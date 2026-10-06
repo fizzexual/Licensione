@@ -22,6 +22,10 @@
     "@biomejs/biome": "^1.9.4",
     "typescript": "^5.7.2"
   },
+  "overrides": {
+    "undici": "^7.30.0",
+    "sharp": "^0.35.5"
+  },
   "engines": {
     "node": ">=20"
   }
